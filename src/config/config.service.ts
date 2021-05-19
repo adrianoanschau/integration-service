@@ -15,12 +15,7 @@ export class ConfigService {
     if (process.env.NODE_ENV !== 'local') {
       filePath = `.env.${process.env.NODE_ENV}`;
     }
-    const envFile = path.resolve(
-      __dirname,
-      '../../../../../',
-      options.folder,
-      filePath,
-    );
+    const envFile = path.resolve(__dirname, '../', options.folder, filePath);
     this.envConfig = dotenv.parse(fs.readFileSync(envFile));
     dotenv.config({ path: envFile });
   }
