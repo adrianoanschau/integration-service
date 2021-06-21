@@ -37,10 +37,10 @@ export class IntegrationServiceModule {
         TerminusModule,
       ],
       providers: [
-        {
-          provide: APP_GUARD,
-          useClass: AuthGuard,
-        },
+        // {
+        //   provide: APP_GUARD,
+        //   useClass: AuthGuard,
+        // },
         ConfigService,
       ],
       controllers: [HealthController],
