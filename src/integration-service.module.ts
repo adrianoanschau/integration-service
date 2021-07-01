@@ -30,6 +30,9 @@ export class IntegrationServiceModule {
             username: configService.get('DB_USERNAME'),
             password: configService.get('DB_PASSWORD'),
             database: configService.get('DB_DATABASE'),
+            extra: {
+              'Max Pool Size': 200,
+            },
             autoLoadEntities: true,
           }),
           inject: [ConfigService],
