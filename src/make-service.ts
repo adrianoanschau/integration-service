@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
+import * as compression from 'compression';
 import {
   HttpExceptionFilter,
   ValidationException,
@@ -8,6 +9,7 @@ import {
 export class MakeService {
   static async start(appModule: any) {
     const app = await NestFactory.create(appModule);
+    app.use(compression());
     app.useGlobalPipes(
       new ValidationPipe({
         transform: true,
