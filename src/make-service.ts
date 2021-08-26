@@ -9,7 +9,6 @@ import {
 export class MakeService {
   static async start(appModule: any) {
     const app = await NestFactory.create(appModule);
-    app.use(compression());
     app.useGlobalPipes(
       new ValidationPipe({
         transform: true,
@@ -18,6 +17,7 @@ export class MakeService {
     );
     app.useGlobalFilters(new HttpExceptionFilter());
     app.setGlobalPrefix('v1');
+    app.use(compression());
     await app.listen(process.env.PORT || 3000);
   }
 }
